@@ -15,7 +15,13 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use('/', Router);
+
+app.get('/',(req,res)=>{
+    console.log("Route / is Getting Hit");
+    return res.status(200).json({message:"Service is Running Fine"});
+})
 
 
 const PORT = 8000;
